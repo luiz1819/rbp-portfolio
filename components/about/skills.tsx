@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 
 const SKILLS = [
+  "Desenvolvimento web",
+  "Criatividade e comunicação",
+  "Trabalho em equipe",
+  "Esporte e disciplina",
+  "Cultura e comunidade",
+  "Aprendizado contínuo",
+
   "UI/UX Design",
   "Design Systems",
   "Prototyping & Motion",
@@ -16,7 +23,7 @@ export function Skills(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-[15px] font-semibold tracking-tight text-foreground">
-        What I do
+        Áreas de interesse
       </h3>
       <div className="rounded-4xl border border-foreground/5 bg-foreground/2 p-2 sm:p-4 dark:bg-foreground/5">
         <div className="flex flex-wrap gap-3">
