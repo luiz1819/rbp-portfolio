@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/ui/motion-primitives";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { AsciiTiles } from "@/components/ui/ascii-tiles";
 
 export const metadata: Metadata = createMetadata({
   title: "Galeria pessoal",
@@ -14,7 +15,7 @@ export const metadata: Metadata = createMetadata({
 export default function ProjectsPage(): ReactNode {
   return (
     <main id="main-content" className="flex flex-1 flex-col">
-      <section className="mx-auto w-full max-w-275 px-6 pt-44 pb-16 sm:px-10 sm:pt-100 sm:pb-20">
+      <section className="relative mx-auto w-full max-w-275 overflow-hidden px-5 pt-32 pb-16 sm:px-10 sm:pt-100 sm:pb-20"><AsciiTiles className="absolute right-5 top-24 hidden w-28 sm:grid" />
         <FadeIn className="flex flex-col items-center gap-5 text-center">
           <h1 className="font-serif text-[2.75rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[3.25rem] lg:text-[3.75rem]">
             Um pouco sobre mim
