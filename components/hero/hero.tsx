@@ -4,7 +4,7 @@ import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { PortraitMorph } from "./portrait-morph";
 import { BlurHighlight } from "@/components/ui/blur-highlight";
-import { Prism } from "@/components/ui/prism";
+import Prism from "@/components/Prism";
 
 const PORTRAIT_SRC = "/josh.webp";
 const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
@@ -12,7 +12,17 @@ const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
 export function Hero(): ReactNode {
   return (
     <section className="relative w-full overflow-hidden">
-      <Prism className="opacity-75" />
+      <Prism
+        animationType="rotate"
+        timeScale={0.5}
+        height={3.5}
+        baseWidth={5.5}
+        scale={3.6}
+        hueShift={0}
+        colorFrequency={1}
+        noise={0.5}
+        glow={1}
+      />
       <div className="relative z-10 mx-auto w-full max-w-275 px-5 pt-32 pb-16 sm:px-10 sm:pt-56 sm:pb-32">
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-8">
           <FadeIn className="flex flex-col gap-4">
