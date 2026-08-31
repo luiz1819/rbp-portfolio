@@ -91,7 +91,7 @@ export function PolaroidStrip(): ReactNode {
   }
 
   return (
-    <div className="flex flex-wrap w-full items-start justify-center gap-1 px-4 sm:gap-1.5 sm:px-8">
+    <div className="flex flex-wrap w-full items-center justify-center gap-[18px] pl-[105px] pr-0">
       {PHOTOS.map((photo, i) => (
         <PolaroidCard key={photo.id} photo={photo} index={i} />
       ))}
