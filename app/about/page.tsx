@@ -18,9 +18,9 @@ export const metadata: Metadata = createMetadata({
 
 export default function AboutPage(): ReactNode {
   return (
-    <main id="main-content" className="flex flex-1 flex-col">
-      <section className="relative mx-auto w-full max-w-312 overflow-hidden pt-32 sm:pt-56">
-        <div className="pointer-events-none absolute inset-0 z-0 h-120 opacity-15 sm:h-160" aria-hidden="true">
+    <main id="main-content" className="relative flex min-h-[calc(100vh-5rem)] flex-1 flex-col overflow-hidden">
+      <section className="relative isolate flex min-h-[calc(100vh-5rem)] w-full max-w-none items-center overflow-hidden px-5 pt-28 pb-16 sm:px-10 sm:pt-40 sm:pb-24">
+        <div className="pointer-events-none absolute inset-0 z-0 h-full min-h-[calc(100vh-5rem)] opacity-30 sm:opacity-35" aria-hidden="true">
           <GridScan
             sensitivity={0.55}
             lineThickness={1}
