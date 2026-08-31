@@ -12,7 +12,7 @@ const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
 export function Hero(): ReactNode {
   return (
     <section className="relative min-h-[680px] w-full overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 z-0 h-full min-h-[680px] opacity-90" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 z-0 h-full min-h-[680px] opacity-35" aria-hidden="true">
         <Prism
           animationType="rotate"
           timeScale={0.5}

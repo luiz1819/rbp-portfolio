@@ -8,6 +8,7 @@ import { FadeIn } from "@/components/ui/motion-primitives";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { GridScan } from "@/components/GridScan";
 
 export const metadata: Metadata = createMetadata({
   title: "About",
@@ -18,8 +19,24 @@ export const metadata: Metadata = createMetadata({
 export default function AboutPage(): ReactNode {
   return (
     <main id="main-content" className="flex flex-1 flex-col">
-      <section className="mx-auto w-full max-w-312 pt-40 sm:pt-56">
-        <PolaroidStrip />
+      <section className="relative mx-auto w-full max-w-312 overflow-hidden pt-32 sm:pt-56">
+        <div className="pointer-events-none absolute inset-0 z-0 h-120 opacity-15 sm:h-160" aria-hidden="true">
+          <GridScan
+            sensitivity={0.55}
+            lineThickness={1}
+            linesColor="#2F293A"
+            gridScale={0.1}
+            scanColor="#FF9FFC"
+            scanOpacity={0.4}
+            enablePost
+            bloomIntensity={0.6}
+            chromaticAberration={0.002}
+            noiseIntensity={0.01}
+            className="h-full w-full"
+            style={{}}
+          />
+        </div>
+        <div className="relative z-10"><PolaroidStrip /></div>
       </section>
 
       <section className="mx-auto w-full max-w-160 px-6 pt-20 pb-16 sm:px-10 sm:pt-28 sm:pb-24">
