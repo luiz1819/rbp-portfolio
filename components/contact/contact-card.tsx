@@ -6,15 +6,19 @@ import type { ReactNode } from "react";
 import { ContactCardCtas } from "./contact-card-ctas";
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { ShaderFlow } from "../shaders/shader-flow";
+import LightRays from "@/components/LightRays";
 
 const CARD_FADE_MASK =
   "radial-gradient(ellipse 90% 110% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.15) 100%)";
 
 export function ContactCard(): ReactNode {
   return (
-    <section className="mx-auto my-12 w-full max-w-275 px-6 sm:my-20 sm:px-10">
+    <section className="relative isolate mx-auto my-12 flex min-h-[680px] w-full max-w-275 items-center overflow-hidden px-6 sm:my-20 sm:px-10">
+      <div className="pointer-events-none absolute inset-0 -z-0 opacity-35" aria-hidden="true">
+        <LightRays raysOrigin="top-right" raysColor="#ffffff" raysSpeed={0.55} lightSpread={1.8} rayLength={1.4} noiseAmount={0.08} distortion={0.12} className="h-full w-full" />
+      </div>
       <FadeIn>
-        <div className="relative w-full overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
+        <div className="relative z-10 w-full overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
           <div className="relative w-full overflow-hidden rounded-[1.6rem]">
             <div
               aria-hidden="true"
