@@ -12,7 +12,7 @@ const PORTRAIT_HOVER_SRC = "https://hebbkx1anhila5yf.public.blob.vercel-storage.
 export function Hero(): ReactNode {
   return (
     <section className="relative min-h-[680px] w-full overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[62%] min-h-[440px] opacity-55 mix-blend-screen sm:h-[72%] md:right-1/2 md:h-full md:min-h-[680px]" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-55 mix-blend-screen" aria-hidden="true">
         <Prism
           animationType="rotate"
           timeScale={0.5}
