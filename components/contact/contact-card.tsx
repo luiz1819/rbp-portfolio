@@ -50,11 +50,6 @@ export function ContactCard(): ReactNode {
                   <SocialIcon href="https://instagram.com/luiz.saccoman" label="Instagram de Luiz Carlos" lucideIcon={Instagram} />
                   <SocialIcon href="https://lattes.cnpq.br/2803945195429577" label="Currículo Lattes de Luiz Carlos" lucideIcon={BookOpen} />
                 </div>
-                <div className="relative z-10 flex max-w-full flex-col items-center gap-1 text-center">
-                  <a href="mailto:luizcarlosilvasaccoman@gmail.com" className="max-w-full break-all text-xs text-foreground/75 transition-colors hover:text-foreground sm:text-sm">luizcarlosilvasaccoman@gmail.com</a>
-                  <a href="https://instagram.com/luiz.saccoman" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground/65 transition-colors hover:text-foreground sm:text-sm">@luiz.saccoman</a>
-                  <a href="https://lattes.cnpq.br/2803945195429577" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground/65 transition-colors hover:text-foreground sm:text-sm">Currículo Lattes</a>
-                </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <p className="text-[13px] tracking-tight text-foreground/70">
                     2026 &copy; Built with Next.js
