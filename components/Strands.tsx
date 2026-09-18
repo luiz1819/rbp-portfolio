@@ -11,22 +11,24 @@ precision highp float;
 uniform float uTime; uniform vec2 uResolution;
 out vec4 color;
 const float PI=3.14159265;
+vec3 palette(float t){ return 0.5 + 0.5*cos(2.0*PI*(t+vec3(0.0,0.33,0.67))); }
 void main(){
   vec2 uv=(gl_FragCoord.xy-.5*uResolution)/uResolution.y;
+  float envelope=pow(max(cos(uv.x*PI*1.3),0.0),3.0);
   vec3 c=vec3(0.0);
-  for(int i=0;i<4;i++){
+  for(int i=0;i<3;i++){
     float fi=float(i);
-    float y=sin(uv.x*(2.0+fi*.5)+uTime*(.7+fi*.18)+fi*1.7)*.12;
-    y+=sin(uv.x*4.0-uTime*.4+fi)*.045;
-    float d=abs(uv.y-y);
-    float glow=.004/(d+.004); glow*=glow;
-    vec3 strand=vec3(.18+.16*fi,.42+.12*fi,1.0);
-    c+=strand*glow;
+    float phase=fi*1.7;
+    float wave=sin(uv.x*(2.0+fi*.35)+uTime*(1.4+fi*1.2)+phase)*.60;
+    wave+=sin(uv.x*(2.2+fi*.38)-uTime*(1.0+fi*.8)+phase*1.7)*.40;
+    float d=abs(uv.y-wave*(.1+.02*envelope));
+    float thickness=(.001+.05*.66)*(.35+envelope)*.7;
+    float glow=thickness/(d+thickness*.45); glow*=glow;
+    c+=palette(fi/3.0+uv.x*.3+uTime*.04)*glow*envelope;
   }
-  float fade=pow(max(cos(uv.x*PI*.85),0.0),1.7);
-  c=1.0-exp(-c*.42)*fade;
-  float a=clamp(max(max(c.r,c.g),c.b)*.72,0.0,.72);
-  color=vec4(c*.7,a);
+  c=1.0-exp(-c*2.6);
+  float lum=max(max(c.r,c.g),c.b);
+  color=vec4(c,clamp(lum,0.0,1.0));
 }`;
 
 export default function Strands({ className = "" }: StrandsProps) {
