@@ -142,6 +142,8 @@ export function PortraitMorph({
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.display = "block";
+    canvas.style.objectFit = "cover";
+    canvas.style.objectPosition = "center";
     container.appendChild(canvas);
 
     const scene = new Transform();

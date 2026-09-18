@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { BookOpen, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -7,6 +7,7 @@ import { ContactCardCtas } from "./contact-card-ctas";
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { ShaderFlow } from "../shaders/shader-flow";
 import LightRays from "@/components/LightRays";
+import Strands from "@/components/Strands";
 
 const CARD_FADE_MASK =
   "radial-gradient(ellipse 90% 110% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.15) 100%)";
@@ -42,23 +43,17 @@ export function ContactCard(): ReactNode {
                 <ContactCardCtas />
               </div>
 
-              <div className="border-foreground/8 flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border bg-background p-6 sm:p-8">
-                <div className="flex items-center gap-3 opacity-75">
-                  <SocialIcon
-                    href="mailto:luizcarlosilvasaccoman@gmail.com"
-                    label="Email"
-                    lucideIcon={Mail}
-                  />
-                  <SocialIcon
-                    href="https://www.linkedin.com"
-                    label="LinkedIn"
-                    imageSrc="/linkedin.svg"
-                  />
-                  <SocialIcon
-                    href="https://x.com"
-                    label="X"
-                    imageSrc="/x.svg"
-                  />
+              <div className="border-foreground/8 relative flex min-h-52 flex-col items-center justify-center gap-6 overflow-hidden rounded-[1.1rem] border bg-background p-6 sm:min-h-60 sm:p-8">
+                <Strands />
+                <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 opacity-90">
+                  <SocialIcon href="mailto:luizcarlosilvasaccoman@gmail.com" label="Enviar email para Luiz Carlos" lucideIcon={Mail} />
+                  <SocialIcon href="https://instagram.com/luiz.saccoman" label="Instagram de Luiz Carlos" lucideIcon={Instagram} />
+                  <SocialIcon href="https://lattes.cnpq.br/2803945195429577" label="Currículo Lattes de Luiz Carlos" lucideIcon={BookOpen} />
+                </div>
+                <div className="relative z-10 flex max-w-full flex-col items-center gap-1 text-center">
+                  <a href="mailto:luizcarlosilvasaccoman@gmail.com" className="max-w-full break-all text-xs text-foreground/75 transition-colors hover:text-foreground sm:text-sm">luizcarlosilvasaccoman@gmail.com</a>
+                  <a href="https://instagram.com/luiz.saccoman" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground/65 transition-colors hover:text-foreground sm:text-sm">@luiz.saccoman</a>
+                  <a href="https://lattes.cnpq.br/2803945195429577" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground/65 transition-colors hover:text-foreground sm:text-sm">Currículo Lattes</a>
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <p className="text-[13px] tracking-tight text-foreground/70">

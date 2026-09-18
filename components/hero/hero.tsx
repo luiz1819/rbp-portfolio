@@ -6,8 +6,8 @@ import { PortraitMorph } from "./portrait-morph";
 import { BlurHighlight } from "@/components/ui/blur-highlight";
 import Prism from "@/components/Prism";
 
-const PORTRAIT_SRC = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2019.43.55%20%281%29-H0C2LFFdsO66aUASU63jZ9JVa3mV8T.jpeg";
-const PORTRAIT_HOVER_SRC = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2020.37.38-RmkK1W40yFAY1SaHjIJSqPjloxzkcR.jpeg";
+const PORTRAIT_SRC = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/01-SU93japBr6wyBVRXZUqOAxHu1NAkHw.jpeg";
+const PORTRAIT_HOVER_SRC = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/02-OICbSlqkYJ4EQsnHUqMsVJPeGtwld0.jpeg";
 
 export function Hero(): ReactNode {
   return (
