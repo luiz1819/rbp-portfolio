@@ -20,7 +20,7 @@ void main(){
     y+=sin(uv.x*4.0-uTime*.4+fi)*.045;
     float d=abs(uv.y-y);
     float glow=.004/(d+.004); glow*=glow;
-    vec3 strand=vec3(.35+.12*fi,.55+.08*fi,1.0);
+    vec3 strand=vec3(.18+.16*fi,.42+.12*fi,1.0);
     c+=strand*glow;
   }
   float fade=pow(max(cos(uv.x*PI*.85),0.0),1.7);
