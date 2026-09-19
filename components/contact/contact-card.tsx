@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { BookOpen, Instagram, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -6,15 +6,20 @@ import type { ReactNode } from "react";
 import { ContactCardCtas } from "./contact-card-ctas";
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { ShaderFlow } from "../shaders/shader-flow";
+import LightRays from "@/components/LightRays";
+import Strands from "@/components/Strands";
 
 const CARD_FADE_MASK =
   "radial-gradient(ellipse 90% 110% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.15) 100%)";
 
 export function ContactCard(): ReactNode {
   return (
-    <section className="mx-auto my-12 w-full max-w-275 px-6 sm:my-20 sm:px-10">
+    <section className="relative isolate mx-auto my-12 flex min-h-[680px] w-full max-w-275 items-center overflow-hidden px-6 sm:my-20 sm:px-10">
+      <div className="pointer-events-none absolute inset-0 -z-0 opacity-35" aria-hidden="true">
+        <LightRays raysOrigin="top-right" raysColor="#ffffff" raysSpeed={0.55} lightSpread={1.8} rayLength={1.4} noiseAmount={0.08} distortion={0.12} className="h-full w-full" />
+      </div>
       <FadeIn>
-        <div className="relative w-full overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
+        <div className="relative z-10 w-full overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
           <div className="relative w-full overflow-hidden rounded-[1.6rem]">
             <div
               aria-hidden="true"
@@ -30,39 +35,27 @@ export function ContactCard(): ReactNode {
             <div className="relative grid gap-8 p-6 sm:gap-10 sm:p-7 md:grid-cols-[1.2fr_1fr] md:items-stretch md:gap-6 md:p-6">
               <div className="flex flex-col gap-5">
                 <h2 className="font-serif text-[2.25rem] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.25rem]">
-                  Let&rsquo;s connect
+                  Vamos conversar
                 </h2>
                 <p className="max-w-[29ch] text-[18px] leading-[1.4] tracking-tight text-foreground/65 sm:text-[22px] mb-6">
-                  I&rsquo;m always open to discussing new projects, creative
-                  ideas, or opportunities to be part of your visions. Just reach out!
+                  Estou aberto a conversar sobre novas oportunidades, ideias e projetos. Entre em contato pelo meu e-mail.
                 </p>
                 <ContactCardCtas />
               </div>
 
-              <div className="border-foreground/8 flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border bg-background p-6 sm:p-8">
-                <div className="flex items-center gap-3 opacity-75">
-                  <SocialIcon
-                    href="mailto:hello@example.com"
-                    label="Email"
-                    lucideIcon={Mail}
-                  />
-                  <SocialIcon
-                    href="https://www.linkedin.com"
-                    label="LinkedIn"
-                    imageSrc="/linkedin.svg"
-                  />
-                  <SocialIcon
-                    href="https://x.com"
-                    label="X"
-                    imageSrc="/x.svg"
-                  />
+              <div className="border-foreground/8 relative flex min-h-52 flex-col items-center justify-center gap-6 overflow-hidden rounded-[1.1rem] border bg-background p-6 sm:min-h-60 sm:p-8">
+                <Strands />
+                <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 opacity-90">
+                  <SocialIcon href="mailto:luizcarlosilvasaccoman@gmail.com" label="Enviar email para Luiz Carlos" lucideIcon={Mail} />
+                  <SocialIcon href="https://instagram.com/luiz.saccoman" label="Instagram de Luiz Carlos" lucideIcon={Instagram} />
+                  <SocialIcon href="https://lattes.cnpq.br/2803945195429577" label="Currículo Lattes de Luiz Carlos" lucideIcon={BookOpen} />
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <p className="text-[13px] tracking-tight text-foreground/70">
                     2026 &copy; Built with Next.js
                   </p>
                   <p className="text-[12px] tracking-tight text-foreground/45">
-                    By React Bits Pro
+                    Luiz Carlos
                   </p>
                 </div>
               </div>

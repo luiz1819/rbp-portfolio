@@ -3,20 +3,22 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef, useSyncExternalStore, type ReactNode } from "react";
 
-import { DottedPattern } from "@/components/ui/dotted-pattern";
+import Strands from "@/components/Strands";
 
 type Polaroid = {
   id: string;
   rotate: number;
+  src: string;
+  alt: string;
 };
 
 const PHOTOS: Polaroid[] = [
-  { id: "a", rotate: -8 },
-  { id: "b", rotate: 6 },
-  { id: "c", rotate: -4 },
-  { id: "d", rotate: 7 },
-  { id: "e", rotate: -6 },
-  { id: "f", rotate: 5 },
+  { id: "a", rotate: -8, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-25%20at%2010.11.52%20%281%29-SPDSJ3BAOJAiUqU59YA25eB93zq2gk.jpeg", alt: "Apresentação de dança em um espaço aberto" },
+  { id: "b", rotate: 6, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2020.19.31-QvygLH6st63ZATy685CUf0C0C3jaNA.jpeg", alt: "Registro com colegas em um ambiente escolar" },
+  { id: "c", rotate: -4, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2020.19.32-QEkPzJkVJpKWeXzvpJm3D3aPFQOv67.jpeg", alt: "Estádio ao anoitecer" },
+  { id: "d", rotate: 7, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-31%20at%2020.37.38-bn3wsJv9vJDrWV8l4vQFM9haRYDlWC.jpeg", alt: "Encontro informal com uma colega" },
+  { id: "e", rotate: -6, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20251128_075315-j9baNERzrtjdll7ODwqkxHqYXe9qKG.jpg", alt: "Medalhas de olimpíadas acadêmicas" },
+  { id: "f", rotate: 5, src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_20260915_164814-06NB25uAldLUe0nL9i0f4Hm5RPcXSg.jpg", alt: "Controle de drone em uma atividade de campo" },
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -74,7 +76,8 @@ function PolaroidCard({
       }}
       className="relative aspect-[3/4] w-[clamp(6rem,11vw,9rem)] shrink-0 overflow-hidden rounded-2xl border-6 border-neutral-300/40 bg-white p-1.5 dark:border-white/15 dark:bg-neutral-900"
     >
-      <DottedPattern className="relative h-full w-full overflow-hidden rounded-xl" />
+      <img src={photo.src} alt={photo.alt} className="h-full w-full rounded-xl object-cover object-center" />
+      {index === PHOTOS.length - 1 ? <Strands className="opacity-65" /> : null}
     </motion.div>
   );
 }
@@ -91,7 +94,7 @@ export function PolaroidStrip(): ReactNode {
   }
 
   return (
-    <div className="flex flex-wrap w-full items-start justify-center gap-1 px-4 sm:gap-1.5 sm:px-8">
+    <div className="flex w-full flex-wrap items-center justify-center gap-[18px] px-2 sm:gap-5 sm:px-4 lg:pl-[105px] lg:pr-0">
       {PHOTOS.map((photo, i) => (
         <PolaroidCard key={photo.id} photo={photo} index={i} />
       ))}
